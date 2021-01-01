@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<a href="create" class="btn btn-primary">Create register</a>
+<table class="table table-primary">
+    <tr>
+        <th>ID</th>
+        <th>customer</th>
+        <th>Time</th>
+        <th>Date</th>
+    </tr>
+    {% for data in register %}
+    <tr>
+        <td>{{data.register_id}}</td>
+        <td>contact: {{data.customer.contact}}<br/>
+            name: {{data.customer.name}}<br/>
+            address: {{data.customer.address}}
+        </td>
+        <td>{{data.date}}</td>
+        <td>{{data.time}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!--to active selected tab in sidebar-->
+<script type="text/javascript">
+    $(function () {
+        $('.sidebar').find('.active').removeClass('active');
+        $('#register').addClass('active');
+    });
+</script>
+{% endblock %}
